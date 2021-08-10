@@ -6,6 +6,8 @@ if(isset($_POST["submit"])){
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
+    $db = new DBController();
+
 
     if (emptyInputLogin($ePosta, $parola) !== true) {
         header("location: ../login.php?error=emptyinput");
@@ -15,7 +17,7 @@ if(isset($_POST["submit"])){
         header("location: ../login.php?error=invalidEmail");
         exit();
     }
-    loginUser($conn, $ePosta, $parola);
+    loginUser($db->get_conn(), $ePosta, $parola);
 }else{
     header("location: ../login.php");
     exit();

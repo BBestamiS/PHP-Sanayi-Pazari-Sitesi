@@ -1,4 +1,6 @@
 <?php
+
+
 if (isset($_POST["submit"])) {
     $isim = $_POST["isim"];
     $soyisim = $_POST["soyisim"];
@@ -6,6 +8,7 @@ if (isset($_POST["submit"])) {
     $parola = $_POST["parola"];
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
+    $db = new DBController();
 
     if (emptyInputSignup($isim, $soyisim, $ePosta, $parola) !== true) {
         header("location: ../signup.php?error=emptyinput");
@@ -23,9 +26,9 @@ if (isset($_POST["submit"])) {
         header("location: ../signup.php?error=invalidEmail");
         exit();
     }
-    if (emailExists($conn, $ePosta) !== true){
+    if (emailExists($db->get_conn(), $ePosta) !== true){
         header("location: ../signup.php?error=epostataken");
         exit();
     }
-    createUser($conn, $isim, $soyisim, $ePosta, $parola);
+    createUser($db->get_conn(), $isim, $soyisim, $ePosta, $parola);
 }

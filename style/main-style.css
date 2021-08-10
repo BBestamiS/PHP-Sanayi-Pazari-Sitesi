@@ -3,3 +3,45 @@
     padding: 0px;
     box-sizing: border-box;
 }
+.products-template{
+    display: inline-block;
+    width: 25%;
+    background-color: transparent;
+}
+.login-div{
+    width: 500px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.logo-h1{
+    color: white;
+}
+.index-link{
+    margin-right: 50px;
+}
+.login-link{
+    margin-right: 50px;
+}
+.signup-link,
+.index-link,
+.login-link,
+.logout-link{
+    background-color: transparent;
+}
+
+/*Products tamplate start*/
+.products-template-div{
+    text-align: center;
+}
+.products-template-img{
+    width: 50%;
+}
+.products-category-section{
+    width: 25%;
+}
+.products-section{
+    width: 75%;
+}
+.product-offer-input{
+    display: block;
+}

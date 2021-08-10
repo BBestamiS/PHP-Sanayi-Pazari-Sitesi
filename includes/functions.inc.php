@@ -92,7 +92,13 @@ function loginUser($conn, $ePosta, $parola){
     session_start();
     $_SESSION["userid"] = $emailExists["users_Id"];
     $_SESSION["username"] = $emailExists["users_Name"];
-    header("location: ../index.php");
+    $_SESSION["admin"] = $emailExists["admin"];
+    if($emailExists["admin"] !== 1){
+        header("location: ../index.php");
+    }
+    else {
+        header("location: ../admin.php");
+    }
     exit();
  }
 }

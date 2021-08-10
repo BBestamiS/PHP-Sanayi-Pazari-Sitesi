@@ -10,7 +10,7 @@ if(isset($_SESSION["userid"])){
 echo '
         <section class="login-section justify-content-center d-flex">
             <div class="login-div">
-                <form action="includes/signup.inc.php" method="post">
+                <form action="includes/signup.inc.php" method="POST">
                     <div class="row justify-content-center">
                         <div class="col-9">
                             <div class="form-group">
@@ -39,7 +39,6 @@ echo '
                         <div class="form-button d-flex justify-content-center col-9">
                             <button type="submit" class="btn btn-success" name="submit">Kayıt Ol</button>
                         </div>';
-                        
                         if(isset($_GET["error"])){
                             if($_GET["error"] == "emptyinput"){
                              echo "<p>Tüm Alanları Eksiksiz Doldurun!</p>";

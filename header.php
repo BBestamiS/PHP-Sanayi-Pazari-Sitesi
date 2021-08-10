@@ -19,9 +19,7 @@
 
     <!-- Argon CSS -->
     <link type="text/css" href="assets/css/argon-design-system.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/main-style.css">
-    <link rel="stylesheet" href="style/login-style.css">
-    <link rel="stylesheet" href="style/nav-stlye.css">
+    <link rel="stylesheet" href="style/main-style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
