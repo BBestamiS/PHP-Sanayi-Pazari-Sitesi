@@ -72,6 +72,45 @@ function  createUser($conn, $isim, $soyisim, $ePosta, $parola){
     header("location: ../signup.php?error=success");
     exit();
 }
+function  createOffer($teklif,$productId,$userid,$conn,$page){
+    $sql = "INSERT INTO offers (productId, userId, offerValue) VALUES (?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt,$sql)){
+        if($page === "index"){
+            header('location: ../index.php?error=stmtfield');
+            exit();
+        }else{
+            header('location: ../detail.php?error=stmtfield');
+            exit();
+        }
+       
+    }
+    mysqli_stmt_bind_param($stmt, "iis", $productId, $userid, $teklif);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    if($page === "index"){
+        header('location: ../index.php?error=success');
+        exit();
+    }else{
+        header('location: ../detail.php?error=success');
+        exit();
+    }
+    exit();
+}
+function  emptyOffer($teklif){
+    if(empty($teklif)){
+        return false;
+    }else{
+        return true;
+    }
+}
+function  invalidOffer($teklif){
+    if(!is_numeric($teklif)){
+        return false;
+    }else {
+        return true;
+    }
+}
 
 function loginUser($conn, $ePosta, $parola){
  $emailExists = emailExists($conn, $ePosta);

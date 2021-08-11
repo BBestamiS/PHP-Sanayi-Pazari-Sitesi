@@ -50,19 +50,21 @@
                                 <input type="hidden" name="offer-create-time" value="' . $item['offerCreateTime'] . '">
                                 <input type="hidden" name="offer-finished-time" value="' . $item['offerFinishedTime'] . '">
                                 <input type="hidden" name="product-image" value="' . $item['productImage'] . '">
-                                <input type="hidden" name="product-description" value="' . $item['productDescription'] . '">
-                                <input type="hidden" name="product-sub-description" value="' . $item['productSubDescription'] . '">';
+                                <input type="hidden" name="product-description" value="' . $item['productDescription'] . '">';
                                 ?>
-                                <button type="submit" class="products-template-detail-button btn btn-success">Detay</button>
+                                <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
                             <?php
                             if (isset($_SESSION['userid'])) {
-                                echo ' <form action="detail.php" method="POST">
+                                 ?> 
+                                <form action="includes/detail.inc.php" method="POST">
+                                <input type="hidden" name="page" value="index" >
                                 <div class="product-offer-input">
-                                <input type="text" name="product-id" >
+                                    <input type="text" name="offer" >
                                 </div>
-                                <button type="submit" class="products-template-detail-button btn btn-success">Teklif Ver</button>
-                            </form>';
+                                <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
+                                <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
+                            </form> <?php ;
                             }
                             ?>
                            <p class="product-finished-time">
@@ -92,19 +94,21 @@
                                 <input type="hidden" name="offer-create-time" value="' . $item['offerCreateTime'] . '">
                                 <input type="hidden" name="offer-finished-time" value="' . $item['offerFinishedTime'] . '">
                                 <input type="hidden" name="product-image" value="' . $item['productImage'] . '">
-                                <input type="hidden" name="product-description" value="' . $item['productDescription'] . '">
-                                <input type="hidden" name="product-sub-description" value="' . $item['productSubDescription'] . '">';
+                                <input type="hidden" name="product-description" value="' . $item['productDescription'] . '">';
                                 ?>
-                                <button type="submit" class="products-template-detail-button btn btn-success">Detay</button>
+                                <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
                             <?php
                             if (isset($_SESSION['userid'])) {
-                                echo ' <form action="detail.php" method="POST">
+                                 ?> 
+                                <form action="includes/detail.inc.php" method="POST">
+                                <input type="hidden" name="page" value="index" >
                                 <div class="product-offer-input">
-                                <input type="text" name="product-id" >
+                                    <input type="text" name="offer" >
                                 </div>
-                                <button type="submit" class="products-template-detail-button btn btn-success">Teklif Ver</button>
-                            </form>';
+                                <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
+                                <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
+                            </form> <?php ;
                             }
                             ?>
                             <p class="product-finished-time">
