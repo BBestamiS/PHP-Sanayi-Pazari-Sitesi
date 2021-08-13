@@ -1,7 +1,6 @@
 <?php
 
-class DBUsers
-{
+class Offers{
     public $db = null;
     public function __construct(DBController $db)
     {
@@ -10,8 +9,8 @@ class DBUsers
         }
         $this->db = $db;
     }
-    public function getUsers(){
-        $sql = "SELECT * FROM users;";
+    public function getOffers(){
+        $sql = "SELECT * FROM offers ORDER BY productId ASC ;";
         $result = mysqli_query($this->db->get_conn(), $sql);
         $resultCheck = mysqli_num_rows($result);
         $resultArray = array();
@@ -20,15 +19,6 @@ class DBUsers
                 $resultArray[] = $row;
             }
             return $resultArray;
-        }
-    }
-    public function getUser($userId){
-        $sql = "SELECT * FROM users WHERE users_Id = " . $userId ." ;";
-        $result = mysqli_query($this->db->get_conn(), $sql);
-        $resultCheck = mysqli_num_rows($result);
-        if($resultCheck > 0 ){
-            $row = mysqli_fetch_object($result);
-                return $row;
         }
     }
 }

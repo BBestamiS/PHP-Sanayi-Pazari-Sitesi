@@ -85,7 +85,7 @@ function  createOffer($teklif,$productId,$userid,$conn,$page){
         }
        
     }
-    mysqli_stmt_bind_param($stmt, "iis", $productId, $userid, $teklif);
+    mysqli_stmt_bind_param($stmt, "iii", $productId, $userid, $teklif);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     if($page === "index"){

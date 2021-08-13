@@ -4,8 +4,23 @@
 ?>
 
     <section class="main-section">
+        <section class="main-info-section">
+            <div class="main-info-div">
+                <p class="main-info-p-first">
+                    Sanayi Ürünlerine <br> Teklif Verebileceğiniz,
+                </p>
+                <div class="main-info-line"></div>
+                <p class="main-info-p-second">
+                Farklı Bir Platform..
+                </p>
+            </div>
+            <div class="main-info-pic"></div>
+        </section>
         <div class="main-div row">
             <section class="products-category-section">
+                <h1 class="category-section-header">
+                    Kategoriye Göre Sırala
+</h1>
                 <?php 
                 foreach(getCategory() as $item) { ?>
                 <div class="category-div">
@@ -13,7 +28,7 @@
                     <?php 
                         echo '<input type="hidden" name="setCategory" value="' . $item['id'] . '">';
                     ?>
-                    <button type="submit" name="category" class="btn ">
+                    <button type="submit" name="category" class="btn products-category-btn">
                     <?php echo $item['category'] ?>
                     </button>
                 </form>
@@ -22,14 +37,14 @@
 
                 <?php
                 if (isset($_GET['category'])) {
-                   echo '<a href="index.php" type="button" class="btn">Hepsini Göster</a>';
+                   echo '<a href="index.php" type="button" class="btn products-category-btn all-product-btn">Hepsini Göster</a>';
                 }
                 ?>
                 
             </section>
             <section class="products-section">
             <div class="main-h1-div text-center  col-12">
-                <h1 class="main-h1 ">Ana Sayfa</h1>
+                <h1 class="main-h1 ">Ürünler</h1>
             </div>
             <?php 
             if(isset($_GET['category'])){
@@ -55,24 +70,25 @@
                                 <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
                             <?php
-                            if (isset($_SESSION['userid'])) {
+                            if (isset($_SESSION['userid']) && $_SESSION['admin'] === 0) {
                                  ?> 
                                 <form action="includes/detail.inc.php" method="POST">
                                 <input type="hidden" name="page" value="index" >
-                                <div class="product-offer-input">
-                                    <input type="text" name="offer" >
-                                </div>
+                                <input class="product-offer-input" type="text" name="offer" placeholder="...">
                                 <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
                                 <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
                             </form> <?php ;
                             }
                             ?>
-                           <p class="product-finished-time">
-                                Teklifin Bitiş Tarihi
-                                <?php
-                                echo $item['offerFinishedTime'];
-                                ?>
-                            </p>
+                          <p class="header-product-offerFinishedTime">
+                    Teklifin Bitiş Tarihi : 
+                        <?php
+                    $dizi = explode ("-", $item['offerFinishedTime']);  
+                    $dizi1 = explode (" ", $dizi[2]);
+                    echo $dizi1[0] . ' ' . $dizi[1] . ' ' ;
+                    echo $dizi[0];
+                    ?>
+                </p>
                         </div>
                     </div> <?php } 
             }
@@ -99,24 +115,26 @@
                                 <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
                             <?php
-                            if (isset($_SESSION['userid'])) {
+                            if (isset($_SESSION['userid']) && $_SESSION['admin'] === 0) {
                                  ?> 
-                                <form action="includes/detail.inc.php" method="POST">
+                                <form class="product-offer-form" action="includes/detail.inc.php" method="POST">
                                 <input type="hidden" name="page" value="index" >
-                                <div class="product-offer-input">
-                                    <input type="text" name="offer" >
-                                </div>
+                                <input class="product-offer-input" type="text" name="offer" placeholder="...">
                                 <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
                                 <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
                             </form> <?php ;
                             }
                             ?>
-                            <p class="product-finished-time">
-                                Teklifin Bitiş Tarihi
-                                <?php
-                                echo $item['offerFinishedTime'];
-                                ?>
-                            </p>
+                            <p class="header-product-offerFinishedTime">
+                    Teklifin Bitiş Tarihi : 
+                        <?php
+                    $dizi = explode ("-", $item['offerFinishedTime']);  
+                    $dizi1 = explode (" ", $dizi[2]);
+                    echo $dizi1[0] . ' ' . $dizi[1] . ' ' ;
+                    echo $dizi[0];
+                    ?>
+                </p>
+
                         </div>
                     </div> <?php } 
             }

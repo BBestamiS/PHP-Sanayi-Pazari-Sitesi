@@ -1,6 +1,7 @@
 <?php
     include_once 'header.php';
     session_start();
+    require_once 'includes/db_functions.php';
 ?>
 <?php
 if(isset($_POST['detail'])){
@@ -22,23 +23,34 @@ if(isset($_POST['detail'])){
             <div class="header-pic-div">
                 <img class="header-product-img" src="<?php echo $_SESSION['productImage'] ?>" alt="product-pic">
             </div>
+            <div class="product-info-line"></div>
+            <div class="product-detail-info">
             <div class="header-product-info">
+                <p class="product-description-header">
+                Açıklama
+                </p>
                 <p class="header-product-description">
-                    Açıklama:
+                    
                     <?php echo $_SESSION['productDescription'] ?>
                 </p>
             </div>
             <div class="header-offer-div">
+            <p class="product-description-header">
+            Teklifin Başlangıç Tarihi
+                </p>
                 <p class="header-product-offerCreateTime">
-                Teklifin Başlangıç Tarihi : 
+                
                     <?php
                     $dizi = explode ("-", $_SESSION['offerCreateTime']);  
                     $dizi1 = explode (" ", $dizi[2]);
                     echo $dizi1[0] . ' ' . $dizi[1] . ' ' ;
                     echo $dizi[0];
                     ?>
+                    <p class="product-description-header">
+                    Teklifin Bitiş Tarihi
+                </p>
                 <p class="header-product-offerFinishedTime">
-                    Teklifin Bitiş Tarihi : 
+                    
                         <?php
                     $dizi = explode ("-", $_SESSION['offerFinishedTime']);  
                     $dizi1 = explode (" ", $dizi[2]);
@@ -49,23 +61,22 @@ if(isset($_POST['detail'])){
             </div>
             <div class="header-offer">
             <?php
-                if (isset($_SESSION['userid'])) {
+                if (isset($_SESSION['userid']) && $_SESSION['admin'] === 0) {
                     ?> 
                     <form action="includes/detail.inc.php" method="POST">
                     <input type="hidden" value="detail" name="page">
-                    <div class="product-offer-input">
-                        <input type="text" name="offer">
-                    </div>
+                    <input class="product-offer-input" type="text" name="offer" placeholder="Fiyat Giriniz">
                     <input type="hidden" name="product-id" value="<?php echo $_SESSION['productId']?>">
                     <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
                 </form> <?php ;
                 }
-                else{
+                else if(!isset($_SESSION['userid'])){
                     ?>
                     <p>Teklif Vermek İçin Giriş Yapınız!</p>
                     <?php
                 }
             ?>
+            </div>
             </div>
         </article>
     </section>
@@ -76,6 +87,16 @@ if(isset($_POST['detail'])){
             Verilen Teklifler
             </h1>
         </div>
+        <?php 
+                foreach(getProductOffers($_SESSION['productId']) as $item) { ?>
+                    <div class="detail-product-offers-div">
+                        <p>Teklifin sahibi : <?php
+                        echo getUser($item['userId'])->users_Name;
+                        ?></p>
+                        <p>Verilen Teklif : <?php echo $item['offerValue'] ?> TL</p>
+
+                    </div>
+                <?php } ?>
         <div class="detail-product-offers">
 
         </div>

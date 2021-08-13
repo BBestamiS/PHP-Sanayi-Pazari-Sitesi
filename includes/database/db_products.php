@@ -10,7 +10,27 @@ class Products
         }
         $this->db = $db;
     }
-
+    public function getOffers($productId){
+        $sql = "SELECT * FROM offers WHERE productId =" . $productId . " ORDER BY offerValue ASC;";
+        $result = mysqli_query($this->db->get_conn(), $sql);
+        $resultCheck = mysqli_num_rows($result);
+        $resultArray = array();
+        if($resultCheck > 0 ){
+            while($row = mysqli_fetch_assoc($result)){
+                $resultArray[] = $row;
+            }
+            return $resultArray;
+        }
+    }
+    public function getProduct($productId){
+        $sql = "SELECT * FROM products WHERE id =" . $productId . ";";
+        $result = mysqli_query($this->db->get_conn(), $sql);
+        $resultCheck = mysqli_num_rows($result);
+        if($resultCheck > 0 ){
+            $row = mysqli_fetch_object($result);
+            return $row;
+        }
+    }
     public function getProducts($category){
         if($category === "all"){
             $sql = "SELECT * FROM products;";

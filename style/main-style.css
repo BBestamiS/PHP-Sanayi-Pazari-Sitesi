@@ -3,6 +3,9 @@
     padding: 0px;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(1, 0, 0);
+}
 .products-template{
     display: inline-block;
     width: 25%;
@@ -13,14 +16,45 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.logo-h1{
+.navbar{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.navbar-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85vw;
+}
+.logo-img{
+    width: 50px;
+}
+
+.signup-link,
+.login-link,
+.logout-link,
+.index-link{
+    font-family: 'Poppins', sans-serif;
     color: white;
 }
+.logout-link:hover{
+    color: red;
+}
+.signup-link:hover,
+.login-link:hover{
+    color: green;
+}
+.index-link:hover{
+    color: orange;
+}
+
 .index-link{
-    margin-right: 50px;
+    margin-right: 4vw;
 }
 .login-link{
-    margin-right: 50px;
+    margin-right: 4vw;
 }
 .signup-link,
 .index-link,
@@ -29,19 +63,221 @@
     background-color: transparent;
 }
 
-/*Products tamplate start*/
-.products-template-div{
+
+/*Main tamplate start*/
+.main-div{
+    margin-top: 50px;
+}
+.main-h1{
+    font-size: 30px;
+    color: gray;
+}
+.main-info-section{
+    position: relative;
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+.main-info-pic{
+    z-index: 1;
+    background-image: url("../assets/img/main-screen-background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+.main-info-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    background-image: linear-gradient(rgb(1, 0, 0) 1%, transparent , transparent, transparent);
+    width: 100%;
+    height: 100%;
+}
+.main-info-line{
+    height: 50%;
+    width: 5px;
+    border-radius: 20px;
+    background: orange;
+}
+.main-info-p-first{
+    width: 70%;
     text-align: center;
+    color: white;
+    font-size: 3vw;
+    font-family: 'Poppins', sans-serif;
+}
+.main-info-p-second{
+    width: 70%;
+    text-align: center;
+    color: white;
+    font-size: 5vw;
+    font-family: 'Poppins', sans-serif;
+}
+/*Main tamplate end*/
+
+
+/*Products tamplate start*/
+.products-template{
+    width: 30%;
+    padding: 10px;
+}
+.products-template-div{
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: 1s;
+
+}
+.products-template-div:hover{
+    background-color: rgba(255, 166, 0, 0.548);
+    transition: 1s;
 }
 .products-template-img{
-    width: 50%;
+    aspect-ratio: 1/1;
+    width: 100%;
+    object-fit:cover;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.category-section-header{
+    color: gray;
+    font-size: 20px;
+    text-align: center;
+}
+.all-product-btn{
+    color: green;
+}
+.products-category-btn{
+    width: 100%;
+}
+.products-category-btn:hover{
+    box-shadow: none;
+}
+.products-template-h3{
+    font-size: 1.5vw;
+    color: white;
 }
 .products-category-section{
     width: 25%;
 }
 .products-section{
     width: 75%;
+    text-align: center;
 }
+::placeholder { 
+    color: rgba(255, 255, 255, 0.486);
+  }
 .product-offer-input{
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+  border-bottom: 2px solid white;
     display: block;
+    text-align: center;
+    color: white;
 }
+.product-offer-input:focus{
+    outline: none;
+}
+.header-product-offerFinishedTime{
+    margin-top: 20px;
+}
+/*Products tamplate end*/
+
+/*Admin tamplate start*/
+.admin-teklif-tarihi-p,
+.admin-teklif-tarihi-div,
+.admin-teklif-deger-p,
+.admin-teklif-deger-div,
+.admin-teklif-resim-div,
+.admin-teklif-urun-div,
+.admin-teklif-kullanici-div,
+.admin-teklif-kullanici-p,
+.admin-teklif-urun-p{
+display: inline;
+}
+
+.admin-teklif-screen{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.admin-teklif-resim-img{
+    width: 100px;
+    height: 100px;
+    display: inline;
+    object-fit: cover;
+}
+/*Admin tamplate end*/
+
+/*Detail tamplate start*/
+.header-info-article{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-product-name-article{
+    margin-bottom: 20px;
+}
+.header-product-name{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+}
+.header-product-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.header-pic-div{
+    aspect-ratio: 1/1;
+    width: 40vw;
+}
+.product-detail-info{
+    width: 40vw;
+}
+.product-info-line{
+    border-radius: 20px;
+    width: 8px;
+    background-color: orange;
+    height: 500px;
+}
+.product-description-header{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+.header-product-offerFinishedTime,
+.header-product-offerCreateTime{
+    text-align: center;
+}
+.header-offer{
+    text-align: center;
+}
+.detail-product-h1{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: white;
+}
+.detail-product-offers-div{
+    display: flex;
+    justify-content: space-around;
+}
+.detail-product{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+/*Detail tamplate end*/
