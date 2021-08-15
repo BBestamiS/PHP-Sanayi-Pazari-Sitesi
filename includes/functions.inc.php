@@ -111,6 +111,13 @@ function  invalidOffer($teklif){
         return true;
     }
 }
+function  emptyTime($createT, $finishedT){
+    if(empty($createT) || empty($finishedT)){
+        return false;
+    }else{
+        return true;
+    }
+}
 
 function loginUser($conn, $ePosta, $parola){
  $emailExists = emailExists($conn, $ePosta);
