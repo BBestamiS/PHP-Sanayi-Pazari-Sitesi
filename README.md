@@ -1,0 +1,1 @@
+Admin panaline giriş yapmak için e-posta: bera@deneme.com şifre: a.

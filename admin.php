@@ -167,10 +167,9 @@ if($_GET['option'] === "guncelle"){?>
                     </div>
                 </div>
                 
-                <input type="submit" name="sumbit" class="btn">
+                <input type="submit" name="sumbit" value="Guncelle" class="btn">
                 </div>
             </div>
-                
         </div>
                 </form>
         <?php } ?>

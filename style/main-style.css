@@ -407,8 +407,6 @@ text-align: center;
         font-size: 3vw;
         color: white;
     }
-}
-@media only screen and (max-width: 450px) {
     .main-info-div{
 
         flex-direction: column;
@@ -422,6 +420,22 @@ text-align: center;
         background: orange;
         margin-bottom: 15px;
     }
+    .main-info-p-first{
+        width: 70%;
+        text-align: center;
+        color: white;
+        font-size: 6vw;
+        font-family: 'Poppins', sans-serif;
+    }
+    .main-info-p-second{
+        width: 70%;
+        text-align: center;
+        color: white;
+        font-size: 8vw;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+@media only screen and (max-width: 450px) {
     .main-info-p-first{
         width: 70%;
         text-align: center;
