@@ -72,7 +72,7 @@ if(isset($_POST['detail'])){
                 }
                 else if(!isset($_SESSION['userid'])){
                     ?>
-                    <p>Teklif Vermek İçin Giriş Yapınız!</p>
+                    <p class="offer-text">Teklif Vermek İçin Giriş Yapınız!</p>
                     <?php
                 }
             ?>

@@ -158,6 +158,7 @@ body{
     width: 100%;
 }
 .products-category-btn:hover{
+    color: white;
     box-shadow: none;
 }
 .products-template-h3{
@@ -193,34 +194,6 @@ body{
     margin-top: 20px;
 }
 /*Products tamplate end*/
-
-/*Admin tamplate start*/
-.admin-teklif-tarihi-p,
-.admin-teklif-tarihi-div,
-.admin-teklif-deger-p,
-.admin-teklif-deger-div,
-.admin-teklif-resim-div,
-.admin-teklif-urun-div,
-.admin-teklif-kullanici-div,
-.admin-teklif-kullanici-p,
-.admin-teklif-urun-p{
-display: inline;
-}
-
-.admin-teklif-screen{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-}
-.admin-teklif-resim-img{
-    width: 100px;
-    height: 100px;
-    display: inline;
-    object-fit: cover;
-}
-/*Admin tamplate end*/
 
 /*Detail tamplate start*/
 .header-info-article{
@@ -280,4 +253,72 @@ display: inline;
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.offer-text{
+    color: greenyellow;
+}
 /*Detail tamplate end*/
+/*Admin tamplate start*/
+.option-screen{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.admin-panel-article{
+    position: relative;
+}
+.second-option-button,
+.first-option-button{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2vw;
+}
+.first-option-button:hover,
+.second-option-button:hover{
+    color: orange;
+}
+
+.admin-teklif-tarihi-p,
+.admin-teklif-tarihi-div,
+.admin-teklif-deger-p,
+.admin-teklif-deger-div,
+.admin-teklif-resim-div,
+.admin-teklif-urun-div,
+.admin-teklif-kullanici-div,
+.admin-teklif-kullanici-p,
+.admin-teklif-no-div,
+.admin-teklif-urun-p{
+display: inline;
+text-align: center;
+}
+
+.admin-teklif-screen{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.admin-teklif-screen1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+}
+.admin-teklif-resim-img{
+    width: 100px;
+    height: 100px;
+    display: inline;
+    object-fit: cover;
+}
+.admin-teklif-no-p{
+    color: orange;
+}
+.admin-teklif-header-p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/*Admin tamplate end*/

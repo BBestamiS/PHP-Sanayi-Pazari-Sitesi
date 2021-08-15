@@ -7,11 +7,25 @@
         <section class="main-info-section">
             <div class="main-info-div">
                 <p class="main-info-p-first">
-                    Sanayi Ürünlerine <br> Teklif Verebileceğiniz,
+                    <?php
+                    if(!isset($_SESSION['userid']) || $_SESSION['admin'] === 0){
+                        echo "Sanayi Ürünlerine <br> Teklif Verebileceğiniz,";
+                    }else{
+                        echo "Ürünlerin Detaylarını <br> Görebilirsin.";
+                    }
+                    ?>
                 </p>
                 <div class="main-info-line"></div>
                 <p class="main-info-p-second">
-                Farklı Bir Platform..
+                <?php
+                    if(!isset($_SESSION['userid']) || $_SESSION['admin'] === 0){
+                        echo "Farklı Bir Platform..";
+                    }else{
+                        echo "Hoşgeldin <br>" . $_SESSION['username'] . ",";
+                        
+                    }
+                    ?>
+                
                 </p>
             </div>
             <div class="main-info-pic"></div>

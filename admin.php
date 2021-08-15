@@ -16,7 +16,7 @@ if(!isset($_GET['option'])){?>
         <div class="second-option">
             <form method="GET">
             <input type="hidden" name="option" value="teklif">
-            <button type="submit" name="submit" class="first-option-button btn">Tüm Teklifleri Görüntüle</button>
+            <button type="submit" name="submit" class="second-option-button btn">Tüm Teklifleri Görüntüle</button>
             </form>
         </div>
     </div>
@@ -33,10 +33,25 @@ if($_GET['option'] === "urun"){
 <?php
 if($_GET['option'] === "teklif"){?>
     <article class="admin-teklif-panel-article">
+    <p class="admin-teklif-header-p">
+                Verilmiş Tüm Teklifler Aşağıda Listelenmiştir!
+            </p>
     <?php 
+    $tmp = 1;
                 foreach(getOffers() as $item) { ?>
         <div class="admin-teklif-screen">
-                <div class="admin-teklif-resim-div">
+            
+            <div class="admin-teklif-screen1">
+            <div class="admin-teklif-no-div">
+                    <p class="admin-teklif-no-p">
+                        <?php
+                        echo $tmp;
+                        $tmp++;
+                        ?>
+                    </p>
+                   
+                </div>
+            <div class="admin-teklif-resim-div">
                     <img class="admin-teklif-resim-img" src="<?php
                         echo getProduct($item['productId'])->productImage;
                         ?>" alt="product">
@@ -75,6 +90,8 @@ if($_GET['option'] === "teklif"){?>
                     </p>
                 </div>
                
+            </div>
+                
         </div>
         <?php } ?>
     </article>
