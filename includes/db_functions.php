@@ -14,6 +14,12 @@ $products = new Products($db);
 function getProductOffers($productId){
     return $GLOBALS['products']->getOffers($productId);
 }
+function getUpdateProduct($productId){
+    return $GLOBALS['products']->getUpdateProduct($productId);
+}
+function getFinishedProduct(){
+    return $GLOBALS['products']->getFinishedProduct();
+}
 
 function getProducts($category){
     return $GLOBALS['products']->getProducts($category);
@@ -43,4 +49,13 @@ $users = new DBUsers($db);
 
  function getOffers(){
      return $GLOBALS['offers']->getOffers();
+ }
+ function getCtime(){
+     return $GLOBALS['offers']->getCtime();
+ }
+ function deleteOffers($productid, $finishedTime){
+     $GLOBALS['offers']->deleteOffers($productid, $finishedTime);
+ }
+ function getLowestOffers(){
+     return $GLOBALS['offers']->getLowestOffers();
  }

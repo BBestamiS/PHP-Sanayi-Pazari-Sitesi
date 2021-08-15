@@ -22,6 +22,18 @@ class Products
             return $resultArray;
         }
     }
+    public function getFinishedProduct(){
+        $sql = "SELECT * FROM products WHERE finishedOffer = 1;";
+        $result = mysqli_query($this->db->get_conn(), $sql);
+        $resultCheck = mysqli_num_rows($result);
+        $resultArray = array();
+        if($resultCheck > 0 ){
+            while($row = mysqli_fetch_assoc($result)){
+                $resultArray[] = $row;
+            }
+            return $resultArray;
+        }
+    }
     public function getProduct($productId){
         $sql = "SELECT * FROM products WHERE id =" . $productId . ";";
         $result = mysqli_query($this->db->get_conn(), $sql);
@@ -33,7 +45,7 @@ class Products
     }
     public function getProducts($category){
         if($category === "all"){
-            $sql = "SELECT * FROM products;";
+            $sql = "SELECT * FROM products WHERE finishedOffer = 0 ;";
             $result = mysqli_query($this->db->get_conn(), $sql);
             $resultCheck = mysqli_num_rows($result);
             $resultArray = array();
@@ -45,7 +57,7 @@ class Products
             }
         }
         else{
-            $sql = "SELECT * FROM products WHERE categoryId =" . $category .  ";";
+            $sql = "SELECT * FROM products WHERE categoryId =" . $category .  " AND finishedOffer = 0 ;";
             $result = mysqli_query($this->db->get_conn(), $sql);
             $resultCheck = mysqli_num_rows($result);
             $resultArray = array();

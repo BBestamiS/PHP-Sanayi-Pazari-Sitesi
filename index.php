@@ -1,6 +1,7 @@
 <?php
     include_once 'header.php';
     require_once 'includes/db_functions.php';
+    
 ?>
 
     <section class="main-section">
@@ -83,17 +84,6 @@
                                 ?>
                                 <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
-                            <?php
-                            if (isset($_SESSION['userid']) && $_SESSION['admin'] === 0) {
-                                 ?> 
-                                <form action="includes/detail.inc.php" method="POST">
-                                <input type="hidden" name="page" value="index" >
-                                <input class="product-offer-input" type="text" name="offer" placeholder="...">
-                                <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
-                                <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
-                            </form> <?php ;
-                            }
-                            ?>
                           <p class="header-product-offerFinishedTime">
                     Teklifin Bitiş Tarihi : 
                         <?php
@@ -107,7 +97,9 @@
                     </div> <?php } 
             }
             else{
-                foreach(getProducts("all") as $item) { ?>
+                foreach(getProducts("all") as $item) { 
+                    deleteOffers($item['id'],$item['offerFinishedTime']);
+                    ?>
                     <div class="products-template">
                         <div class="products-template-div">
                             <h3 class="products-template-h3">
@@ -128,17 +120,6 @@
                                 ?>
                                 <button type="submit" name="detail" class="products-template-detail-button btn btn-success">Detay</button>
                             </form>
-                            <?php
-                            if (isset($_SESSION['userid']) && $_SESSION['admin'] === 0) {
-                                 ?> 
-                                <form class="product-offer-form" action="includes/detail.inc.php" method="POST">
-                                <input type="hidden" name="page" value="index" >
-                                <input class="product-offer-input" type="text" name="offer" placeholder="...">
-                                <input type="hidden" name="product-id" value="<?php echo $item['id']?>">
-                                <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
-                            </form> <?php ;
-                            }
-                            ?>
                             <p class="header-product-offerFinishedTime">
                     Teklifin Bitiş Tarihi : 
                         <?php

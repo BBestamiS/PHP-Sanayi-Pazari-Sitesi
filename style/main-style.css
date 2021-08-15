@@ -140,6 +140,7 @@ body{
     transition: 1s;
 }
 .products-template-img{
+    border-radius: 10px;
     aspect-ratio: 1/1;
     width: 100%;
     object-fit:cover;
@@ -256,6 +257,10 @@ body{
 .offer-text{
     color: greenyellow;
 }
+.detail-offer-section-info{
+    color: orange;
+    font-size: 20px;
+}
 /*Detail tamplate end*/
 /*Admin tamplate start*/
 .option-screen{
@@ -264,6 +269,26 @@ body{
     width: 100%;
     height: 90vh;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.option-screen1{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.option-screen2{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
@@ -305,6 +330,22 @@ text-align: center;
     justify-content: space-between;
     align-items: center;
     width: 75%;
+}
+.admin-no-and-pic{
+    width: 15%;
+}
+.admin-no-and-pic,
+.admin-new-time-and-submit{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.new-offer-time{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 .admin-teklif-resim-img{
     width: 100px;
