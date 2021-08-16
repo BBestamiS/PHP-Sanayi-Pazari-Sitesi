@@ -118,6 +118,20 @@ function  emptyTime($createT, $finishedT){
         return true;
     }
 }
+function  invalidTime($createT, $finishedT){
+    $dizi = explode ("-", $createT);  
+    $dizi1 = explode (" ", $dizi[2]);
+    $dizi2 = explode ("-", $finishedT);  
+    $dizi3 = explode (" ", $dizi2[2]);
+    if($dizi2[0] >= $dizi[0]){
+        if($dizi2[1] >= $dizi[1]){
+            if($dizi3[0] >= $dizi1[0]){
+                 return true;
+                }
+            }
+         }
+    return false;
+}
 
 function loginUser($conn, $ePosta, $parola){
  $emailExists = emailExists($conn, $ePosta);

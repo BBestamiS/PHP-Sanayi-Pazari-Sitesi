@@ -1,6 +1,10 @@
 <?php
 include_once 'header.php';
 require_once 'includes/db_functions.php';
+if(!isset($_SESSION['userid']) || $_SESSION['admin'] === 0){
+    header('location: ./index.php');
+    exit();
+}
 ?>
 
 <?php
@@ -123,7 +127,7 @@ if($_GET['option'] === "guncelle"){?>
     <?php 
     $tmp = 1;
                 foreach(getFinishedProduct() as $item) { ?>
- <form action="includes/detail_update.inc.php" method="POST">
+ <form action="includes/admin_update.inc.php" method="POST">
         <div class="admin-teklif-screen">
             
             <div class="admin-teklif-screen1">
@@ -163,15 +167,22 @@ if($_GET['option'] === "guncelle"){?>
                         <label for="time1">Yeni Bitiş Tarihi:</label>
                         <input type="date" id="time1" name="finishedT">
                         <input type="hidden" value="<?php echo $item['id']?>" name="productId">
-
                     </div>
                 </div>
                 
                 <input type="submit" name="sumbit" value="Guncelle" class="btn">
                 </div>
             </div>
+           
         </div>
-                </form>
+        <?php
+            if(isset($_GET['error']) && $_GET['error'] === "emptyTime" && $_GET['id'] === $item['id']){
+                echo '<p class="error-p">Tarih Alanları Boş Kalamaz!</p>';
+            } else if(isset($_GET['error']) && $_GET['error'] === "invalidTime" && $_GET['id'] === $item['id']){
+                echo '<p class="error-p">Bitiş Tarihi, Oluşturulma Tarihinden Daha İleri Bir Tarih Olamalı!</p>';
+            }
+        ?>
+        </form>
         <?php } ?>
     </article>
 <?php

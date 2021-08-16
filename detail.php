@@ -2,6 +2,7 @@
     include_once 'header.php';
     session_start();
     require_once 'includes/db_functions.php';
+    
 ?>
 <?php
 if(isset($_POST['detail'])){
@@ -14,7 +15,12 @@ if(isset($_POST['detail'])){
     $_SESSION['productDescription'] = $_POST["product-description"];
 }
 ?>
-
+<?php
+    if(!isset($_SESSION['productId'])){
+        header('location: ./index.php');
+        exit();
+    }
+?>
     <section class="header-section">
         <article class="header-product-name-article">
             <h3 class="header-product-name"><?php echo  $_SESSION['productName'] ?></h3>
@@ -74,6 +80,13 @@ if(isset($_POST['detail'])){
                                             <input class="product-offer-input" type="text" name="offer" placeholder="Fiyat Giriniz">
                                             <input type="hidden" name="product-id" value="<?php echo $_SESSION['productId']?>">
                                             <button type="submit" name="offer-button" class="products-template-detail-button btn btn-success">Teklif Ver</button>
+                                            <?php
+                                            if(isset($_GET['error']) && $_GET['error'] === "emptyoffer"){
+                                                echo '<p class="error-p">Teklif Alanı Boş Kalamaz!</p>';
+                                            } else if(isset($_GET['error']) && $_GET['error'] === "invalidoffer"){
+                                                echo '<p class="error-p">Teklif Alanına Sadece Fiyat Girebilirsiniz!</p>';
+                                            }
+                                            ?>
                                         </form>    
                                         <?php }
                                         else{
@@ -100,7 +113,9 @@ if(isset($_POST['detail'])){
             </div>
         </article>
     </section>
-    <section class="detail-product">
+    <?php
+    if(isset($_SESSION['userid'])){ ?>
+<section class="detail-product">
         <hr>
         <div class="detail-product-h1-div">
             <h1 class="detail-product-h1">
@@ -121,6 +136,9 @@ if(isset($_POST['detail'])){
 
         </div>
     </section>
+  <?php }
+    ?>
+    
 
 
 <?php

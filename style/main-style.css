@@ -256,10 +256,14 @@ body{
 }
 .offer-text{
     color: greenyellow;
+    font-size: 20px;
 }
 .detail-offer-section-info{
     color: orange;
     font-size: 20px;
+}
+.header-product-description{
+ text-align: center;       
 }
 /*Detail tamplate end*/
 /*Admin tamplate start*/
@@ -357,10 +361,17 @@ text-align: center;
     color: orange;
 }
 .admin-teklif-header-p{
+    color:cornflowerblue;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5vw;
     text-align: center;
     margin-bottom: 50px;
+}
+.error-p{
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 /*Admin tamplate end*/
 
@@ -383,6 +394,48 @@ text-align: center;
         width: 40%;
         background-color: transparent;
     }
+    .header-info-article{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+    .header-product-img{
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+    .header-pic-div{
+        aspect-ratio: 1/1;
+        width: 75vw;
+    }
+    .product-info-line{
+        border-radius: 20px;
+        width: 75%;
+        background-color: orange;
+        height: 8px;
+        margin-top: 50px;
+    }
+    .product-description-header{
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .product-detail-info{
+        width: 90vw;
+    }
+    .admin-teklif-header-p{
+        font-size: 3vw;
+    }
+    .admin-teklif-screen1{
+        width: 100%;
+    }
+    .second-option-button,
+    .first-option-button{
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.2vw;
+}
 }
 @media only screen and (max-width: 650px) {
     .main-info-section{
@@ -434,6 +487,7 @@ text-align: center;
         font-size: 8vw;
         font-family: 'Poppins', sans-serif;
     }
+   
 }
 @media only screen and (max-width: 450px) {
     .main-info-p-first{
